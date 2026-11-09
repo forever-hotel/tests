@@ -1,0 +1,29 @@
+name: Staging smoke verification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Verify six deployed frontends
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Test deployed sites (read-only)
+        run: npm run test:smoke
+        env:
+          HW_URL: https://forever-hotel-staging.malaysiawest.cloudapp.azure.com
+          MAD_URL: https://forever-hotel-manager.duckdns.org
+          FDS_URL: https://forever-hotel-frontdesk.duckdns.org
+          FOSS_URL: https://forever-hotel-food.duckdns.org
+          KMS_URL: https://forever-hotel-kitchen.duckdns.org/login
+          WKMS_URL: https://forever-hotel-workers.duckdns.org
