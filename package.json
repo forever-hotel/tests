@@ -1,0 +1,13 @@
+{
+  "name": "forever-hotel-central-tests",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cross-subsystem staging smoke and integration test harness for Forever Hotel",
+  "scripts": {
+    "check": "node --check config/targets.mjs && node --check tests/config.test.mjs && node --check tests/staging-smoke.test.mjs",
+    "test": "node --test tests/config.test.mjs",
+    "test:smoke": "node --test tests/staging-smoke.test.mjs"
+  },
+  "engines": {"node": ">=22"}
+}
