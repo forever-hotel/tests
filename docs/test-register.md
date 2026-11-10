@@ -96,3 +96,27 @@ actual result, execution date, result and reproducible evidence.
 3. Execute cross-subsystem journeys with disposable test data.
 4. Capture actual CI runs, traces and results.
 5. Reconcile the register with the final documents repository.
+
+## GitHub Actions Verification - 2026-11-10
+
+### Central tests CI
+- Workflow: Central tests CI #16
+- Branch: develop
+- Commit: c74fc96
+- Result: Passed
+- Evidence: https://github.com/forever-hotel/tests/actions/workflows/ci.yml
+
+### Staging Smoke Verification
+- Workflow: Staging smoke verification #1
+- Branch: develop
+- Commit: c74fc96
+- Result: Passed
+- Scope: All six deployed frontend entry points
+- Evidence: https://github.com/forever-hotel/tests/actions/runs/42756040021
+
+### Outstanding Limitations
+- Two authenticated staff-login tests remain blocked.
+- Four public Gateway tests remain blocked.
+- Full cross-subsystem business journeys remain unverified.
+- Skipped or unexecuted tests are not counted as successful.
+
